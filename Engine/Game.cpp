@@ -42,4 +42,6 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
+	//commit test
+	gfx.PutPixel(gfx.ScreenWidth / 2, gfx.ScreenHeight / 2, Colors::Green);
 }
