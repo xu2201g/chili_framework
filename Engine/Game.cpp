@@ -34,8 +34,8 @@ Game::Game(MainWindow& wnd)
 	m_editor(Vec2(EDITOR_X_DIM, EDITOR_Y_DIM), CELL_DIM)
 {
 	//test();
-	m_map.Init();
-	m_editor.Init();
+	m_map.Init(COLOR_GRAY);
+	m_editor.Init(COLOR_RANDOM);
 }
 
 void Game::Go()
@@ -50,33 +50,15 @@ void Game::UpdateModel()
 {
 	if (wnd.mouse.LeftIsPressed())
 	{
-		if (m_editor.m_map.IsWithinMap(Vec2(wnd.mouse.GetPosX(), wnd.mouse.GetPosY())))
-		{
-			Cell* cell = m_editor.m_map.MouseToEditorCell(wnd.mouse);
-			if (cell != NULL)
-			{
-				m_map.m_cell_matrix[0][0].m_color = cell->m_color;
-			}
+		//m_editor.SelectCell(wnd.mouse, *m_editor.m_color_map.MouseToCell(wnd.mouse));
+		//m_map.UpdateCellColor(wnd.mouse, m_editor.m_selected_cell.m_color);
 
-			m_editor.SelectCell(*m_editor.m_map.MouseToEditorCell(wnd.mouse));
-		}
-
-		if (m_map.IsWithinMap(Vec2(wnd.mouse.GetPosX(), wnd.mouse.GetPosX())))
-		{
-			Cell* cell = m_map.MouseToEditorCell(wnd.mouse);
-			if (cell != NULL)
-			{
-				cell->m_color = m_editor.m_selected_cell.m_color;
-			}
-
-			
-		}
-		
+		m_map.UpdateCellColor(wnd.mouse, Colors::Green);
 	}
 }
 
 void Game::ComposeFrame()
 {	
-	m_map.Draw(0, 0, gfx);
+	m_map.Draw(Vec2(0, 0), gfx);
 	m_editor.Draw(gfx);
 }

@@ -1,10 +1,8 @@
 #pragma once
 
-
 //graphics
 #define SCREEN_WIDTH 1500
 #define SCREEN_HEIGHT 900
-
 
 //map
 #define MAP_CELL_RNG 1
@@ -16,8 +14,12 @@
 #define EDITOR_X_DIM 5
 #define EDITOR_Y_DIM 5
 
+#define COLOR_RANDOM 0
+#define COLOR_GRAY 1
+
 //cell
 #define CELL_PADDING 1
 #define CELL_DIM 25
 
 #define CELL_COLOR_DEFAULT Color(127, 127, 127)
+

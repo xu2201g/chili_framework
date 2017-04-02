@@ -3,17 +3,18 @@
 #include <assert.h>
 #include <random>
 #include <iostream>
+#include <math.h>
 
 Map::Map(Vec2 pos, Vec2 dim, const int cell_dim)
 	:
 	m_position(pos),
 	m_cells_dimensions(dim),
-	m_cell_dimension(cell_dim)
+	m_cell_dimension(cell_dim),
+	m_selected_cell(cell_dim, Colors::Black)
 {
-
 }
 
-void Map::Init(void)
+void Map::Init(const int mode)
 {
 	assert(m_cell_dimension*m_cells_dimensions.x <= Graphics::ScreenWidth && m_cell_dimension*m_cells_dimensions.y <= Graphics::ScreenHeight);
 
@@ -25,13 +26,25 @@ void Map::Init(void)
 
 	//initializing map size
 	m_cell_matrix.resize(int(m_cells_dimensions.x), std::vector<Cell>(int(m_cells_dimensions.y)));
-
+	Color c;
 	//initializing map cell colors
+
+	
+
 	for (int x = 0; x < m_cells_dimensions.x; ++x)
 	{
 		for (int y = 0; y < m_cells_dimensions.y; ++y)
 		{
-			Color c = Color(cDist(rng), cDist(rng), cDist(rng));
+			switch (mode)
+			{
+			case 0: c = Color(cDist(rng), cDist(rng), cDist(rng)); break;
+			case 1: c = Colors::Gray; break;
+			case 2: c = Color();
+
+
+				break;
+			}
+			
 			Cell cell(m_cell_dimension, c);
 			RegisterCell(Vec2(float(x), float(y)), cell);
 		}
@@ -54,7 +67,7 @@ void Map::RegisterCell(Vec2 pos, Cell cell)
 	}
 }
 
-Cell* Map::MouseToEditorCell(Mouse& mouse)
+bool Map::MouseToCell(Mouse& mouse, Cell& cell)
 {
 	if ( IsWithinMap( Vec2( float(mouse.GetPosX()), float(mouse.GetPosY()) ) ) )
 	{
@@ -66,13 +79,15 @@ Cell* Map::MouseToEditorCell(Mouse& mouse)
 		
 		//m_cell_matrix[int(cell_coordinates.x)][int(cell_coordinates.y)].m_color = Colors::White;
 		
-		return &m_cell_matrix[int(cell_coordinates.x)][int(cell_coordinates.y)];
-
+		CopyCell(m_cell_matrix[int(cell_coordinates.x)][int(cell_coordinates.y)], m_selected_cell);
+		//cell->m_color = Colors::Green;
+		return true;
 	}
 	else
 	{
-		return NULL;
+		return false;
 	}
+
 }
 
 bool Map::IsWithinMap(Vec2 pos)
@@ -88,13 +103,25 @@ bool Map::IsWithinMap(Vec2 pos)
 	}
 }
 
-void Map::Draw(const int x_off, const int y_off, Graphics& gfx)
+
+
+void Map::UpdateCellColor(Mouse& mouse, Color color)
+{
+	
+	if(MouseToCell(mouse, m_selected_cell))
+	{
+		m_selected_cell.m_color = color;
+	}
+	
+}
+
+void Map::Draw(Vec2 offset, Graphics& gfx)
 {
 	for (int x = 0; x < m_cells_dimensions.x; ++x)
 	{
 		for (int y = 0; y < m_cells_dimensions.y; ++y)
 		{
-			m_cell_matrix[x][y].Draw(x_off,y_off, gfx);
+			m_cell_matrix[x][y].Draw(offset.x, offset.y, gfx);
 		}
 	}
 }
