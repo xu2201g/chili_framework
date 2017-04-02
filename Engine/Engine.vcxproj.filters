@@ -66,6 +66,9 @@
     <ClInclude Include="iVec2.h">
       <Filter>Header Files\New</Filter>
     </ClInclude>
+    <ClInclude Include="iRect.h">
+      <Filter>Header Files\New</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXErr.cpp">
@@ -96,6 +99,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="iVec2.cpp">
+      <Filter>Source Files\New</Filter>
+    </ClCompile>
+    <ClCompile Include="iRect.cpp">
       <Filter>Source Files\New</Filter>
     </ClCompile>
   </ItemGroup>

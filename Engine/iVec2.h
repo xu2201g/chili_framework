@@ -1,7 +1,5 @@
 #pragma once
 
-#include <math.h>
-
 class iVec2
 {
 public:

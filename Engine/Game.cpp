@@ -22,6 +22,7 @@
 #include "Game.h"
 
 #include "iVec2.h"
+#include "iRect.h"
 
 Game::Game( MainWindow& wnd )
 	:
@@ -40,16 +41,10 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	iVec2 v1(2, 7);
-	iVec2 v2(-5, 5);
+	iVec2 v1(5, 5);
+	iVec2 v2(6, 6);
 
-	iVec2 v3 = v1 + v2;
-
-	v3 = v3 + v1;
-	v3 += v1;
-
-	v3 *= 2;
-	v3 *= -1;
+	iRect r1(v1, v2);
 }
 
 void Game::ComposeFrame()
