@@ -23,6 +23,7 @@
 
 #include "iVec2.h"
 #include "iRect.h"
+#include "Render.h"
 
 Game::Game( MainWindow& wnd )
 	:
@@ -41,12 +42,18 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	iVec2 v1(5, 5);
-	iVec2 v2(6, 6);
 
-	iRect r1(v1, v2);
 }
 
 void Game::ComposeFrame()
 {
+	iVec2 v1(0, 0);
+	iVec2 v2(799, 599);
+
+	iRect r1(v1, v2);
+
+	Render rn(gfx);
+	rn.DrawRect(r1, Colors::Magenta);
+	rn.DrawPoint(iVec2(55, 63), Colors::Cyan);
+
 }
