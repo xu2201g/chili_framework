@@ -23,6 +23,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Map.h"
 
 class Game
 {
@@ -31,6 +32,7 @@ public:
 	Game( const Game& ) = delete;
 	Game& operator=( const Game& ) = delete;
 	void Go();
+
 private:
 	void ComposeFrame();
 	void UpdateModel();
@@ -42,5 +44,7 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+
+	Map m_map;
 	/********************************/
 };

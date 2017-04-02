@@ -146,7 +146,9 @@
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="Makros.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MAP_00.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sound.h" />

@@ -69,6 +69,12 @@
     <ClInclude Include="Cell.h">
       <Filter>Header Files\New</Filter>
     </ClInclude>
+    <ClInclude Include="Makros.h">
+      <Filter>Header Files\New</Filter>
+    </ClInclude>
+    <ClInclude Include="MAP_00.h">
+      <Filter>Header Files\New</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXErr.cpp">
@@ -102,7 +108,7 @@
       <Filter>Source Files\New</Filter>
     </ClCompile>
     <ClCompile Include="Cell.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\New</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

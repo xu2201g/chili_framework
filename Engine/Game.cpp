@@ -21,12 +21,17 @@
 #include "MainWindow.h"
 #include "Game.h"
 #include "Map.h"
+#include "MAP_00.h"
+
+#include "Makros.h"
 
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	m_map(MAP_X_DIM, MAP_Y_DIM, CELL_DIM)
 {
+	test();
 }
 
 void Game::Go()
@@ -35,17 +40,18 @@ void Game::Go()
 	UpdateModel();
 	ComposeFrame();
 	gfx.EndFrame();
+
+	
 }
 
 void Game::UpdateModel()
 {
-
+	
+	//m_map.Draw(gfx);
 }
 
 void Game::ComposeFrame()
-{
+{	
 	
-	Map map(10, 10, 15);
-	map.Draw(gfx);
-	
+	map_00.Draw(gfx);
 }
