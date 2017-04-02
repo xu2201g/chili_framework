@@ -21,6 +21,8 @@
 #include "MainWindow.h"
 #include "Game.h"
 
+#include "iVec2.h"
+
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
@@ -38,6 +40,16 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	iVec2 v1(2, 7);
+	iVec2 v2(-5, 5);
+
+	iVec2 v3 = v1 + v2;
+
+	v3 = v3 + v1;
+	v3 += v1;
+
+	v3 *= 2;
+	v3 *= -1;
 }
 
 void Game::ComposeFrame()

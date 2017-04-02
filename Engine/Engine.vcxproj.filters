@@ -16,6 +16,12 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{8b6c92a8-f65d-451e-80e3-d65773602b92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\New">
+      <UniqueIdentifier>{d75a2bff-2850-48fb-9a10-9f5da04abfd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\New">
+      <UniqueIdentifier>{5f1573ff-d6e5-493f-ba68-a217fb1998b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChiliWin.h">
@@ -57,6 +63,9 @@
     <ClInclude Include="COMInitializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="iVec2.h">
+      <Filter>Header Files\New</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXErr.cpp">
@@ -85,6 +94,9 @@
     </ClCompile>
     <ClCompile Include="COMInitializer.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="iVec2.cpp">
+      <Filter>Source Files\New</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
