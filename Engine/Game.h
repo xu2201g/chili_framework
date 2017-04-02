@@ -24,6 +24,7 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "Map.h"
+#include "Editor.h"
 
 class Game
 {
@@ -46,5 +47,6 @@ private:
 	/*  User Variables              */
 
 	Map m_map;
+	Editor m_editor;
 	/********************************/
 };

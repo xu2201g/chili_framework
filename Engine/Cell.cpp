@@ -10,7 +10,7 @@ Cell::Cell(const int dim, const Color c)
 {
 }
 
-void Cell::Draw(Graphics& gfx)
+void Cell::Draw(const int x_off, const int y_off, Graphics& gfx)
 {
 	assert(2 * m_padding < m_dimension && 2 * m_padding < m_dimension);
 
@@ -18,7 +18,7 @@ void Cell::Draw(Graphics& gfx)
 	{
 		for (int y = 0 + m_padding; y < m_dimension - m_padding; ++y)
 		{
-			gfx.PutPixel(x + m_x_map_pos*m_dimension, y + m_y_map_pos*m_dimension, m_color);
+			gfx.PutPixel(x + m_map_pos.x*m_dimension + x_off, y + m_map_pos.y*m_dimension + y_off, m_color);
 		}
 	}	
 }

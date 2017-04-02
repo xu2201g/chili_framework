@@ -22,16 +22,20 @@
 #include "Game.h"
 #include "Map.h"
 #include "MAP_00.h"
+#include "Mouse.h"
 
 #include "Makros.h"
 
-Game::Game( MainWindow& wnd )
+Game::Game(MainWindow& wnd)
 	:
-	wnd( wnd ),
-	gfx( wnd ),
-	m_map(MAP_X_DIM, MAP_Y_DIM, CELL_DIM)
+	wnd(wnd),
+	gfx(wnd),
+	m_map(Vec2(0, 0), Vec2(MAP_X_DIM, MAP_Y_DIM), CELL_DIM),
+	m_editor(Vec2(EDITOR_X_DIM, EDITOR_Y_DIM), CELL_DIM)
 {
-	test();
+	//test();
+	m_map.Init();
+	m_editor.Init();
 }
 
 void Game::Go()
@@ -40,18 +44,39 @@ void Game::Go()
 	UpdateModel();
 	ComposeFrame();
 	gfx.EndFrame();
-
-	
 }
 
 void Game::UpdateModel()
 {
-	
-	//m_map.Draw(gfx);
+	if (wnd.mouse.LeftIsPressed())
+	{
+		if (m_editor.m_map.IsWithinMap(Vec2(wnd.mouse.GetPosX(), wnd.mouse.GetPosY())))
+		{
+			Cell* cell = m_editor.m_map.MouseToEditorCell(wnd.mouse);
+			if (cell != NULL)
+			{
+				m_map.m_cell_matrix[0][0].m_color = cell->m_color;
+			}
+
+			m_editor.SelectCell(*m_editor.m_map.MouseToEditorCell(wnd.mouse));
+		}
+
+		if (m_map.IsWithinMap(Vec2(wnd.mouse.GetPosX(), wnd.mouse.GetPosX())))
+		{
+			Cell* cell = m_map.MouseToEditorCell(wnd.mouse);
+			if (cell != NULL)
+			{
+				cell->m_color = m_editor.m_selected_cell.m_color;
+			}
+
+			
+		}
+		
+	}
 }
 
 void Game::ComposeFrame()
 {	
-	
-	map_00.Draw(gfx);
+	m_map.Draw(0, 0, gfx);
+	m_editor.Draw(gfx);
 }

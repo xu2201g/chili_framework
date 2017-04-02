@@ -2,6 +2,7 @@
 #include <vector>
 #include "Graphics.h"
 #include "Cell.h"
+#include "Mouse.h"
 
 #define   REGISTERED 1
 #define UNREGISTERED 0
@@ -11,16 +12,20 @@ class Map
 
 public:
 
-	Map(const int x_dim, const int y_dim, const int cell_dim);
+	Map(Vec2 pos, Vec2 dim, const int cell_dim);
+	void Init(void);
+	void RegisterCell(Vec2 pos, Cell cell);
+	
+	Cell* MouseToEditorCell(Mouse& mouse);
+	bool IsWithinMap(Vec2 pos);
+	void Draw(const int x_off, const int y_off, Graphics& gfx);
 
-	void RegisterCell(const int x, const int y, Cell cell);
+public:
 
-	void Draw(Graphics& gfx);
+	Vec2 m_position;
 
-private:
+	Vec2 m_cells_dimensions;
 
-	int m_x_cells_dimension;
-	int m_y_cells_dimension;
 	int m_cell_dimension;
 
 	std::vector<std::vector<Cell>> m_cell_matrix;

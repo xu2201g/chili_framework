@@ -75,6 +75,12 @@
     <ClInclude Include="MAP_00.h">
       <Filter>Header Files\New</Filter>
     </ClInclude>
+    <ClInclude Include="Editor.h">
+      <Filter>Header Files\New</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2.h">
+      <Filter>Header Files\New</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXErr.cpp">
@@ -108,6 +114,12 @@
       <Filter>Source Files\New</Filter>
     </ClCompile>
     <ClCompile Include="Cell.cpp">
+      <Filter>Source Files\New</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec2.cpp">
       <Filter>Source Files\New</Filter>
     </ClCompile>
   </ItemGroup>
