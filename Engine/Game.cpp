@@ -20,6 +20,7 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include "Map.h"
 
 Game::Game( MainWindow& wnd )
 	:
@@ -38,10 +39,13 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+
 }
 
 void Game::ComposeFrame()
 {
-	//commit test
-	gfx.PutPixel(gfx.ScreenWidth / 2, gfx.ScreenHeight / 2, Colors::Green);
+	
+	Map map(10, 10, 15);
+	map.Draw(gfx);
+	
 }
