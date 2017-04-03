@@ -6,7 +6,7 @@ Editor::Editor(void)
 	:
 	m_menu(MENU_TITLE, RECT_MENUBAR,  MODULE_COLOR),
 	m_toolbar(TOOLBAR_TITLE, RECT_TOOLBAR, MODULE_COLOR),
-	m_map(MAP_TITLE, RECT_MAP, iVec2(MAP_DIM_X, MAP_DIM_Y))	
+	m_map(MAP_TITLE, iVec2(MAP_DIM_X, MAP_DIM_Y))	
 {
 	Init();
 }
@@ -22,4 +22,9 @@ void Editor::Init(void)
 	//m_modules.push_back(module_map);
 
 	m_map.Init();
+}
+
+void Editor::setMap(Map map)
+{
+	m_map = map;
 }

@@ -12,8 +12,7 @@ public:
 	Editor(void);
 
 	void Init(void);
-
-	//std::vector<Module> m_modules;
+	void setMap(Map map);
 
 	MenuBar& getMenu(void) { return m_menu; }
 	ToolBar& getToolbar(void) { return m_toolbar; }

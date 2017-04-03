@@ -24,8 +24,7 @@
 #include "iVec2.h"
 #include "iRect.h"
 #include "Render.h"
-#include "Module.h"
-
+#include "FileHandler.h"
 
 Game::Game( MainWindow& wnd )
 	:
@@ -33,6 +32,13 @@ Game::Game( MainWindow& wnd )
 	gfx( wnd ),
 	m_editor()
 {
+	Map map_start("Start", iVec2(16, 9));
+	Map map_town;
+	FileHandler fh;
+	//fh.saveMap(map_start, "..\\Engine\\files\\test.txt");
+	fh.loadMap(map_start, "..\\Engine\\files\\test.txt");
+
+	m_editor.setMap(map_start);
 }
 
 void Game::Go()
@@ -45,14 +51,8 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	UpdateModules();
-}
-
-void Game::UpdateModules()
-{
 
 }
-
 
 void Game::ComposeFrame()
 {

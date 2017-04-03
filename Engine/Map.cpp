@@ -2,15 +2,12 @@
 
 #include "Makros.h"
 
-
-
-
-Map::Map(const std::string name, iRect rect, iVec2 dim)
+Map::Map(const std::string name, iVec2 dim)
 	:
 	m_name(name),
-	m_dimensions(dim),
-	m_rect(rect)
+	m_dimensions(dim)
 {
+	Init();
 }
 
 void Map::Init(void)

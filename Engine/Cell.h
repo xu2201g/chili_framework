@@ -17,6 +17,8 @@ public:
 	iVec2& getPosition(void) { return m_pos; }
 	iVec2& getDimensions(void) { return m_dimensions; }
 
+	void setColor(Color color);
+
 private:
 	
 	iVec2 m_pos;
