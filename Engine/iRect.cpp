@@ -66,8 +66,6 @@ void iRect::UpdateOnDrag(iVec2 move)
 		new_position_tl.m_x = SCREEN_WIDTH - m_dimensions.m_x;
 	}
 	
-	
-	
 	if (new_position_br.m_y >= SCREEN_HEIGHT)
 	{
 		new_position_br.m_y = SCREEN_HEIGHT - 1;

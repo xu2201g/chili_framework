@@ -78,12 +78,18 @@
     <ClInclude Include="Makros.h">
       <Filter>Header Files\New</Filter>
     </ClInclude>
+    <ClInclude Include="Editor.h">
+      <Filter>Header Files\New</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files\New</Filter>
+    </ClInclude>
+    <ClInclude Include="Cell.h">
+      <Filter>Header Files\New</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXErr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
@@ -113,11 +119,23 @@
     <ClCompile Include="iRect.cpp">
       <Filter>Source Files\New</Filter>
     </ClCompile>
-    <ClCompile Include="Render.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Cell.cpp">
+      <Filter>Source Files\New</Filter>
     </ClCompile>
     <ClCompile Include="Module.cpp">
+      <Filter>Source Files\New</Filter>
+    </ClCompile>
+    <ClCompile Include="Editor.cpp">
+      <Filter>Source Files\New</Filter>
+    </ClCompile>
+    <ClCompile Include="Render.cpp">
+      <Filter>Source Files\New</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Source Files\New</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -26,11 +26,12 @@
 #include "Render.h"
 #include "Module.h"
 
+
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	m_module(iRect(iVec2(30, 30), iVec2(330, 230)), Colors::Blue)
+	m_editor()
 {
 }
 
@@ -49,40 +50,43 @@ void Game::UpdateModel()
 
 void Game::UpdateModules()
 {
-	//module dragging handled here
-	if (wnd.mouse.LeftIsPressed())
-	{
-		//iterate through modules
-		iVec2 mouse_position = iVec2(wnd.mouse.GetPosX(), wnd.mouse.GetPosY());
-		if (m_module.m_is_mouse_dragging)
-		{
-			iVec2 move = mouse_position - m_module.m_mouse_drag;
-			m_module.UpdateOnDrag(move);
-		}
-		else
-		{
-			if (m_module.m_rectangle.isPointWithin(mouse_position))
-			{
-				m_module.m_is_mouse_dragging = true;
-				m_module.m_mouse_drag = mouse_position;
-			}
-		}
-	}
-	else
-	{
-		m_module.m_is_mouse_dragging = false;
-		m_module.Update();
-	}
+	//for (int i = 0; i < m_editor.m_modules.size(); ++i)
+	//{
+	//	UpdateModule(m_editor.m_modules[i]);
+	//}
 }
+
+//void Game::UpdateModule(Module& module)
+//{
+//	//module dragging handled here
+//	if (wnd.mouse.LeftIsPressed())
+//	{
+//		
+//		//iterate through modules
+//		iVec2 mouse_position = iVec2(wnd.mouse.GetPosX(), wnd.mouse.GetPosY());
+//		if (module.m_is_mouse_dragging)
+//		{
+//			iVec2 move = mouse_position - module.m_mouse_drag;
+//			module.UpdateOnDrag(move);
+//		}
+//		else
+//		{
+//			if (module.m_rectangle.isPointWithin(mouse_position))
+//			{
+//				module.m_is_mouse_dragging = true;
+//				module.m_mouse_drag = mouse_position;
+//			}
+//		}
+//	}
+//	else
+//	{
+//		module.m_is_mouse_dragging = false;
+//		module.Update();
+//	}
+//}
 
 void Game::ComposeFrame()
 {
-	iVec2 v1(0, 0);
-	iVec2 v2(799, 599);
-	iRect r1(v1, v2);
-	
 	Render rn(gfx);
-	rn.DrawRect(r1, Colors::Magenta);
-	rn.DrawPoint(iVec2(550, 63), Colors::Cyan);
-	rn.DrawModule(m_module);
+	rn.DrawEditor(m_editor);
 }

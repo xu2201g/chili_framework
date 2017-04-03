@@ -3,21 +3,23 @@
 
 #include <assert.h>
 
-Module::Module( iRect rect)
+Module::Module( iRect rect, std::string name)
 	:
 	m_rectangle(rect),
 	m_color_back(MODULE_COLOR_DEFAULT),
 	m_mouse_drag(MODULE_MOUSE_DRAG_DEFAULT),
-	m_is_mouse_dragging(false)
+	m_is_mouse_dragging(false),
+	m_name(name)
 {	
 }
 
-Module::Module(iRect rect, Color c)
+Module::Module(iRect rect, std::string name, Color c)
 	:
 	m_rectangle(rect),
 	m_color_back(c),
 	m_mouse_drag(MODULE_MOUSE_DRAG_DEFAULT),
-	m_is_mouse_dragging(false)
+	m_is_mouse_dragging(false),
+	m_name(name)
 {
 }
 

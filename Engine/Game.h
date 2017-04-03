@@ -23,7 +23,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
-#include "Module.h"
+#include "Editor.h"
 
 class Game
 {
@@ -36,6 +36,7 @@ private:
 	void ComposeFrame();
 	void UpdateModel();
 	void UpdateModules();
+//	void UpdateModule(Module & module);
 	/********************************/
 	/*  User Functions              */
 	/********************************/
@@ -45,8 +46,7 @@ private:
 	/********************************/
 	/*  User Variables              */
 
-
-	Module m_module;
+	Editor m_editor;	
 
 	/********************************/
 };
