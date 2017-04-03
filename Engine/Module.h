@@ -5,25 +5,26 @@
 
 #include <string>
 
-
 class Module
 {
+
 public:
 
-	Module(void) = default;
-	Module(iRect rect, std::string name);
-	Module(iRect rect, std::string name, Color c);
+	Module(std::string name, iRect& rect);
+	Module(std::string name, iRect& rect, Color c);
 
-	void UpdateOnDrag(iVec2 move);
-	void Update(void);
+	iRect& getRect(void) { return m_rect; }
+	Color& getColor(void) { return m_color; }
+	
+protected:
 
 	std::string m_name;
+
 	
+	iRect m_rect;
+	Color m_color;
 
 	iVec2 m_mouse_drag;
-	iRect m_rectangle;
-	Color m_color_back;
-
 	bool m_is_mouse_dragging;
 
 };

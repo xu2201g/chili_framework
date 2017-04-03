@@ -2,9 +2,9 @@
 
 
 
-Cell::Cell(const iVec2 pos, const iVec2 dim, Color c)
+Cell::Cell(iVec2 pos, iVec2 dim, Color c)
 	:
-	m_position(pos),
+	m_pos(pos),
 	m_dimensions(dim),
 	m_color(c)
 {

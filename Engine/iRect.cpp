@@ -6,36 +6,32 @@ iRect::iRect(iVec2& pos_top_left, const int width, const int height)
 	:
 	m_position_tl(pos_top_left),
 	m_dimensions(iVec2(width, height)),
-	m_position_br(iVec2(pos_top_left.m_x + width - 1, pos_top_left.m_y + height - 1)),
-	m_old_position_tl(m_position_tl),
-	m_old_position_br(m_position_br)
+	m_position_br(iVec2(pos_top_left.getX() + width - 1, pos_top_left.getY() + height - 1))
 {
-	assert(m_position_tl.m_x <= m_position_br.m_x &&
-	       m_position_tl.m_y <= m_position_br.m_y);
+	assert(m_position_tl.getX() <= m_position_br.getX() &&
+	       m_position_tl.getY() <= m_position_br.getY());
 
-	assert(m_dimensions.m_x > 0 && 
-		   m_dimensions.m_y > 0);
+	assert(m_dimensions.getX() > 0 && 
+		   m_dimensions.getY() > 0);
 }
 
 iRect::iRect(iVec2& pos_top_left, iVec2& pos_bottom_right)
 	:
 	m_position_tl(pos_top_left),
 	m_position_br(pos_bottom_right),
-	m_old_position_tl(m_position_tl),
-	m_old_position_br(m_position_br),
-	m_dimensions(iVec2(pos_bottom_right.m_x - pos_top_left.m_x + 1, pos_bottom_right.m_y - pos_top_left.m_y + 1))
+	m_dimensions(iVec2(pos_bottom_right.getX() - pos_top_left.getX() + 1, pos_bottom_right.getY() - pos_top_left.getY() + 1))
 {
-	assert(m_position_tl.m_x <= m_position_br.m_x &&
-		   m_position_tl.m_y <= m_position_br.m_y);
+	assert(m_position_tl.getX() <= m_position_br.getX() &&
+		   m_position_tl.getY() <= m_position_br.getY());
 
-	assert(m_dimensions.m_x > 0 &&
-		   m_dimensions.m_y > 0);
+	assert(m_dimensions.getX() > 0 &&
+		   m_dimensions.getY() > 0);
 }
 
 bool iRect::isPointWithin(iVec2 & point)
 {
-	if (point.m_x >= m_position_tl.m_x && point.m_x <= m_position_br.m_x && /*horizontal*/
-		point.m_y >= m_position_tl.m_y && point.m_y <= m_position_br.m_y)   /*vertical  */
+	if (point.getX() >= m_position_tl.getX() && point.getX() <= m_position_br.getX() && /*horizontal*/
+		point.getY() >= m_position_tl.getY() && point.getY() <= m_position_br.getY())   /*vertical  */
 	{
 		return true;
 	}
@@ -45,41 +41,3 @@ bool iRect::isPointWithin(iVec2 & point)
 	}
 }
 
-void iRect::UpdateOnDrag(iVec2 move)
-{
-	iVec2 new_position_tl(m_old_position_tl + move);
-	iVec2 new_position_br(m_old_position_br + move);
-
-	if (new_position_tl.m_x < 0) new_position_tl.m_x = 0;
-	if (new_position_tl.m_y < 0) new_position_tl.m_y = 0;
-	
-	if (new_position_tl.m_x >= SCREEN_WIDTH)  new_position_tl.m_x = SCREEN_WIDTH -1;
-	if (new_position_tl.m_y >= SCREEN_HEIGHT) new_position_tl.m_y = SCREEN_HEIGHT -1;
-
-	if (new_position_br.m_x < 0) new_position_br.m_x = 0;
-	if (new_position_br.m_y < 0) new_position_br.m_y = 0;
-
-	
-	if (new_position_br.m_x >= SCREEN_WIDTH)
-	{
-		new_position_br.m_x = SCREEN_WIDTH - 1;
-		new_position_tl.m_x = SCREEN_WIDTH - m_dimensions.m_x;
-	}
-	
-	if (new_position_br.m_y >= SCREEN_HEIGHT)
-	{
-		new_position_br.m_y = SCREEN_HEIGHT - 1;
-		new_position_tl.m_y = SCREEN_HEIGHT - m_dimensions.m_y;
-	}
-
-	m_position_tl = new_position_tl;
-	m_position_br = new_position_br;
-
-}
-
-
-void iRect::Update(void)
-{
-	m_old_position_tl = m_position_tl;
-	m_old_position_br = m_position_br;
-}

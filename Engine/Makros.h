@@ -27,4 +27,19 @@
 #define MAP_DIM_X 50
 #define MAP_DIM_Y 36
 
+#define TOOLBAR_TITLE "TOOLBAR"
+#define MENU_TITLE "MENU"
+#define MAP_TITLE "MAP"
+
+#define MODULE_COLOR Colors::DarkGray
+
+#define MENUBAR_COLOR Colors::Gray
 #define MAP_COLOR Colors::Gray
+
+#define BUTTON_WIDTH 25
+#define BUTTON_HEIGHT 25
+
+#define BUTTON_NEW_TITLE "NEW"
+#define BUTTON_LOAD_TITLE "LOAD"
+#define BUTTON_SAVE_TITLE "SAVE"
+#define BUTTON_SIMULATE_TITLE "SIMULATE"
