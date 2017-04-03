@@ -24,6 +24,7 @@
 #include <wrl.h>
 #include "ChiliException.h"
 #include "Colors.h"
+#include "Makros.h"
 
 class Graphics
 {
@@ -73,6 +74,6 @@ private:
 	D3D11_MAPPED_SUBRESOURCE							mappedSysBufferTexture;
 	Color*                                              pSysBuffer = nullptr;
 public:
-	static constexpr int ScreenWidth = 800;
-	static constexpr int ScreenHeight = 600;
+	static constexpr int ScreenWidth = SCREEN_WIDTH;
+	static constexpr int ScreenHeight = SCREEN_HEIGHT;
 };

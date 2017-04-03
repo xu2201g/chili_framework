@@ -15,6 +15,8 @@ public:
 	iVec2 operator*(int rhs);
 	iVec2& operator*=(int rhs);
 
+	static const bool isValid(iVec2 point);
+
 	int m_x;
 	int m_y;
 };

@@ -23,6 +23,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Module.h"
 
 class Game
 {
@@ -34,6 +35,7 @@ public:
 private:
 	void ComposeFrame();
 	void UpdateModel();
+	void UpdateModules();
 	/********************************/
 	/*  User Functions              */
 	/********************************/
@@ -42,5 +44,9 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+
+
+	Module m_module;
+
 	/********************************/
 };
