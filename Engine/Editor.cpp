@@ -4,7 +4,9 @@
 
 Editor::Editor(void)	
 	:
-	m_map("map_start", RECT_MAP, iVec2(MAP_DIM_X, MAP_DIM_Y))
+	m_menu(MENU_TITLE, RECT_MENUBAR,  MODULE_COLOR),
+	m_toolbar(TOOLBAR_TITLE, RECT_TOOLBAR, MODULE_COLOR),
+	m_map(MAP_TITLE, RECT_MAP, iVec2(MAP_DIM_X, MAP_DIM_Y))	
 {
 	Init();
 }

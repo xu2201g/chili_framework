@@ -50,40 +50,9 @@ void Game::UpdateModel()
 
 void Game::UpdateModules()
 {
-	//for (int i = 0; i < m_editor.m_modules.size(); ++i)
-	//{
-	//	UpdateModule(m_editor.m_modules[i]);
-	//}
+
 }
 
-//void Game::UpdateModule(Module& module)
-//{
-//	//module dragging handled here
-//	if (wnd.mouse.LeftIsPressed())
-//	{
-//		
-//		//iterate through modules
-//		iVec2 mouse_position = iVec2(wnd.mouse.GetPosX(), wnd.mouse.GetPosY());
-//		if (module.m_is_mouse_dragging)
-//		{
-//			iVec2 move = mouse_position - module.m_mouse_drag;
-//			module.UpdateOnDrag(move);
-//		}
-//		else
-//		{
-//			if (module.m_rectangle.isPointWithin(mouse_position))
-//			{
-//				module.m_is_mouse_dragging = true;
-//				module.m_mouse_drag = mouse_position;
-//			}
-//		}
-//	}
-//	else
-//	{
-//		module.m_is_mouse_dragging = false;
-//		module.Update();
-//	}
-//}
 
 void Game::ComposeFrame()
 {

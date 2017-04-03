@@ -3,32 +3,26 @@
 
 #include <assert.h>
 
-Module::Module( iRect rect, std::string name)
+Module::Module(std::string name, iRect& rect)
 	:
-	m_rectangle(rect),
-	m_color_back(MODULE_COLOR_DEFAULT),
+	m_rect(rect),
+	m_color(MODULE_COLOR_DEFAULT),
 	m_mouse_drag(MODULE_MOUSE_DRAG_DEFAULT),
 	m_is_mouse_dragging(false),
 	m_name(name)
 {	
 }
 
-Module::Module(iRect rect, std::string name, Color c)
+Module::Module(std::string name, iRect& rect, Color c)
 	:
-	m_rectangle(rect),
-	m_color_back(c),
+	m_rect(rect),
+	m_color(c),
 	m_mouse_drag(MODULE_MOUSE_DRAG_DEFAULT),
 	m_is_mouse_dragging(false),
 	m_name(name)
 {
 }
 
-void Module::UpdateOnDrag(iVec2 move)
-{
-	m_rectangle.UpdateOnDrag(move);
-}
 
-void Module::Update(void)
-{
-	m_rectangle.Update();
-}
+
+

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "iRect.h"
 #include "iVec2.h"
 #include "Colors.h"
 
@@ -9,13 +10,16 @@ class Cell
 public:
 
 	Cell(void) = default;
-	Cell(const iVec2 pos, const iVec2 dim, Color c);
+	Cell(iVec2 pos, iVec2 dim, Color c);
 
+	Color& getColor(void) { return m_color; }
 
+	iVec2& getPosition(void) { return m_pos; }
+	iVec2& getDimensions(void) { return m_dimensions; }
 
-
-	iVec2 m_position;
+private:
+	
+	iVec2 m_pos;
 	iVec2 m_dimensions;
-
 	Color m_color;
 };

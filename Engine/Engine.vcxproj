@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="ChiliException.h" />
     <ClInclude Include="ChiliWin.h" />
@@ -151,14 +152,17 @@
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Makros.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MenuBar.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundEffect.h" />
+    <ClInclude Include="ToolBar.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="COMInitializer.cpp" />
     <ClCompile Include="DXErr.cpp" />
@@ -171,10 +175,12 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MenuBar.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="Sound.cpp" />
+    <ClCompile Include="ToolBar.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">

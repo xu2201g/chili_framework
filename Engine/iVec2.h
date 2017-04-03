@@ -18,6 +18,14 @@ public:
 
 	static const bool isValid(iVec2 point);
 
+	int getX(void) { return m_x; }
+	int getY(void) { return m_y; }
+
+	void setX(int x) { m_x = x; }
+	void setY(int y) { m_y = y; }
+
+private:
+
 	int m_x;
 	int m_y;
 };
