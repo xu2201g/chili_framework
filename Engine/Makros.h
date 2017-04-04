@@ -14,8 +14,8 @@
 #define TOOLBAR 1
 #define MAP 2
 
-#define RECT_MENUBAR iRect(iVec2(2,2), iVec2(1003, 30))
-#define RECT_TOOLBAR iRect(iVec2(1006,2), iVec2(1277, 765))
+#define RECT_MENUBAR iRect(iVec2(2,2), iVec2(1001, 30))
+#define RECT_TOOLBAR iRect(iVec2(1004,2), iVec2(1277, 765))
 #define TOPLEFT_MAP iVec2(2,33)
 
 #define CELL_DIM_X 20

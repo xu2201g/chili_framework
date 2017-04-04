@@ -12,8 +12,10 @@ public:
 
 	Map(void) = default;
 	Map(const std::string name, iVec2 dim);
+	Map(const std::string name, iVec2 dim, Color color);
 
 	void Init(void);
+	void Init(Color color);
 
 	iVec2& getDim(void) { return m_dimensions; }
 

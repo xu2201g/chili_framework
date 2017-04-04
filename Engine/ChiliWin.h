@@ -37,7 +37,7 @@
 #define NOATOM
 #define NOCLIPBOARD
 #define NOCOLOR
-#define NOCTLMGR
+//#define NOCTLMGR jesus fcking titis this error was a pain in the arse
 #define NODRAWTEXT
 #define NOKERNEL
 #define NONLS

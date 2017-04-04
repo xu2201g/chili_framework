@@ -25,6 +25,7 @@
 #include "iRect.h"
 #include "Render.h"
 #include "FileHandler.h"
+#include "WinDialogs.h"
 
 Game::Game( MainWindow& wnd )
 	:
@@ -32,13 +33,19 @@ Game::Game( MainWindow& wnd )
 	gfx( wnd ),
 	m_editor()
 {
-	Map map_start("Start", iVec2(16, 9));
-	Map map_town;
-	FileHandler fh;
-	//fh.saveMap(map_start, "..\\Engine\\files\\test.txt");
-	fh.loadMap(map_start, "..\\Engine\\files\\test.txt");
+//TEST FILHANDLER BEGIN
 
-	m_editor.setMap(map_start);
+	//Map map_start("Start", iVec2(30, 30));
+
+	//FileHandler fh;
+	//fh.saveMap(map_start, "..\\Engine\\files\\test.txt");
+	////fh.loadMap(map_start, "..\\Engine\\files\\test.txt");
+
+	//m_editor.setMap(map_start);
+
+//TEST FILHANDLER END
+	WinDialogs wnddialog;
+	wnddialog.OpenDialog();
 }
 
 void Game::Go()

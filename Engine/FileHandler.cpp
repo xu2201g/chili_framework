@@ -1,5 +1,7 @@
 #include "FileHandler.h"
 
+
+
 bool FileHandler::saveMap(Map& map, std::string path)
 {	
 	std::ofstream writer(path);
@@ -12,7 +14,7 @@ bool FileHandler::saveMap(Map& map, std::string path)
 		writer << type << std::endl;
 
 		writer << map.getName() << std::endl;
-		writer << map.getDim().getX() << " " << map.getDim().getX() << std::endl;
+		writer << map.getDim().getX() << " " << map.getDim().getY() << std::endl;
 
 		//cell matrix
 		for (int y = 0; y < map.getDim().getY(); ++y)
@@ -20,10 +22,6 @@ bool FileHandler::saveMap(Map& map, std::string path)
 			for (int x = 0; x < map.getDim().getX(); ++x)
 			{
 				writer << map.getCellMatrix()[x][y].getColor().dword << " ";
-
-				//writer << "(" << map.getCellMatrix()[x][y].getPosition().getX() << "|" 
-				//	          << map.getCellMatrix()[x][y].getPosition().getY() << ")";
-				//writer << "(" << x << "|" << y << ")";
 			}
 			writer << std::endl;
 		}
@@ -38,6 +36,13 @@ bool FileHandler::saveMap(Map& map, std::string path)
 
 	writer.close();
 	return failed;
+}
+
+bool FileHandler::saveMap(std::string title, iVec2 dimensions, Color color, std::string path)
+{
+	Map map(title, dimensions, color);
+	
+	return saveMap(map, path);
 }
 
 bool FileHandler::loadMap(Map& map, std::string path)

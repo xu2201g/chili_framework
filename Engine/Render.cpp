@@ -44,8 +44,8 @@ void Render::DrawCell(Cell& cell, iVec2 offset)
 	{
 		for (int y = 0 + CELL_PADDING; y < cell.getDimensions().getY() - CELL_PADDING; ++y)
 		{
-			m_gfx.PutPixel(x + 2 + cell.getPosition().getX() * cell.getDimensions().getX() + offset.getX(),
-				           y + 2 + cell.getPosition().getY() * cell.getDimensions().getY() + offset.getY(), cell.getColor());
+			m_gfx.PutPixel(x + cell.getPosition().getX() * cell.getDimensions().getX() + offset.getX(),
+				           y + cell.getPosition().getY() * cell.getDimensions().getY() + offset.getY(), cell.getColor());
 		}
 	}
 }
