@@ -24,7 +24,4 @@ protected:
 	iRect m_rect;
 	Color m_color;
 
-	iVec2 m_mouse_drag;
-	bool m_is_mouse_dragging;
-
 };

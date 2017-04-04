@@ -34,9 +34,18 @@ public:
 	void Go();
 private:
 	void ComposeFrame();
+
+	void CheckKeyboardEvents(void);
+	
 	void UpdateModel();
-	void UpdateModules();
-//	void UpdateModule(Module & module);
+
+	void CheckMouseEvents();
+	void CheckMouseToolBarEvents();
+	void CheckMouseMenuBarEvents();
+	void CheckMouseMapEvents();
+
+	void copyCell(iVec2 mouse_position);
+
 	/********************************/
 	/*  User Functions              */
 	/********************************/

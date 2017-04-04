@@ -22,6 +22,12 @@
     <Filter Include="Source Files\New">
       <UniqueIdentifier>{5f1573ff-d6e5-493f-ba68-a217fb1998b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\deprecated">
+      <UniqueIdentifier>{317ca57e-0d29-4115-a180-760a95dfbb72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\deprecated">
+      <UniqueIdentifier>{990ab186-1be7-4c35-8e96-d9bf7c9c7975}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChiliWin.h">
@@ -72,9 +78,6 @@
     <ClInclude Include="Render.h">
       <Filter>Header Files\New</Filter>
     </ClInclude>
-    <ClInclude Include="Module.h">
-      <Filter>Header Files\New</Filter>
-    </ClInclude>
     <ClInclude Include="Makros.h">
       <Filter>Header Files\New</Filter>
     </ClInclude>
@@ -100,6 +103,12 @@
       <Filter>Header Files\New</Filter>
     </ClInclude>
     <ClInclude Include="WinDialogs.h">
+      <Filter>Header Files\New</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Header Files\deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
       <Filter>Header Files\New</Filter>
     </ClInclude>
   </ItemGroup>
@@ -137,9 +146,6 @@
     <ClCompile Include="Cell.cpp">
       <Filter>Source Files\New</Filter>
     </ClCompile>
-    <ClCompile Include="Module.cpp">
-      <Filter>Source Files\New</Filter>
-    </ClCompile>
     <ClCompile Include="Editor.cpp">
       <Filter>Source Files\New</Filter>
     </ClCompile>
@@ -163,6 +169,12 @@
     </ClCompile>
     <ClCompile Include="FileHandler.cpp">
       <Filter>Source Files\New</Filter>
+    </ClCompile>
+    <ClCompile Include="Module.cpp">
+      <Filter>Source Files\deprecated</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 #include "Render.h"
-
+#include "Makros.h"
 #include <assert.h>
 
 Render::Render(Graphics& gfx)
@@ -36,6 +36,7 @@ void Render::DrawEditor(Editor& editor)
 	DrawMap(editor.getMap());
 	DrawMenuBar(editor.getMenu());
 	DrawToolBar(editor.getToolbar());
+	DrawPlayer(editor.getPlayer());
 }
 
 void Render::DrawCell(Cell& cell, iVec2 offset)
@@ -54,6 +55,8 @@ void Render::DrawMap(Map& map)
 {
 	iVec2 offset = TOPLEFT_MAP;
 
+	DrawRect(map.getRect(), Colors::Blue);
+
 	for (int x = 0; x < map.getDim().getX(); ++x)
 	{
 		for (int y = 0; y < map.getDim().getY(); ++y)
@@ -66,8 +69,7 @@ void Render::DrawMap(Map& map)
 void Render::DrawMenuBar(MenuBar& menu)
 {
 	iVec2 offset = menu.getRect().getTopLeft();
-
-
+	
 	DrawRect(menu.getRect(), menu.getColor());
 
 	DrawRect(menu.getNew().getRect(), menu.getNew().getColor(), offset);
@@ -79,4 +81,21 @@ void Render::DrawMenuBar(MenuBar& menu)
 void Render::DrawToolBar(ToolBar& tool)
 {
 	DrawRect(tool.getRect(), tool.getColor());
+
+	DrawRect(tool.getCopyButton().getRect(), tool.getCopyCell().getColor(), tool.getRect().getTopLeft());
+}
+
+void Render::DrawPlayer(Player& player)
+{
+	iVec2 offset = player.getMap().getRect().getTopLeft();
+
+	for (int x = 0 + CELL_PADDING; x < player.getCell().getDimensions().getX() - CELL_PADDING; ++x)
+	{
+		for (int y = 0 + CELL_PADDING; y < player.getCell().getDimensions().getY() - CELL_PADDING; ++y)
+		{
+			    m_gfx.PutPixel(x + player.getCell().getPosition().getX() * player.getCell().getDimensions().getX() + offset.getX(),
+				               y + player.getCell().getPosition().getY() * player.getCell().getDimensions().getY() + offset.getY(), PLAYER_COLOR);
+		}
+	}
+	
 }

@@ -25,6 +25,8 @@ public:
 	void DrawMenuBar(MenuBar& menu);
 	void DrawToolBar(ToolBar& tool);
 
+	void DrawPlayer(Player& player);
+
 private:
 
 	Color m_color_default;

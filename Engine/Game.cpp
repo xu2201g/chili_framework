@@ -38,14 +38,18 @@ Game::Game( MainWindow& wnd )
 	//Map map_start("Start", iVec2(30, 30));
 
 	//FileHandler fh;
-	//fh.saveMap(map_start, "..\\Engine\\files\\test.txt");
-	////fh.loadMap(map_start, "..\\Engine\\files\\test.txt");
+	////fh.saveMap(map_start, "..\\Engine\\files\\test.txt");
+	//fh.loadMap(map_start, "..\\Engine\\files\\test.txt");
 
 	//m_editor.setMap(map_start);
 
 //TEST FILHANDLER END
-	WinDialogs wnddialog;
-	wnddialog.OpenDialog();
+
+
+//TEST DIALOG BEGIN
+	//WinDialogs wnddialog;
+	//wnddialog.OpenDialog();
+//TEST DIALOG END
 }
 
 void Game::Go()
@@ -58,11 +62,88 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	if (wnd.mouse.LeftIsPressed())
+	{
+		CheckMouseEvents();
+	}
 
+	CheckKeyboardEvents();
 }
+
+
 
 void Game::ComposeFrame()
 {
 	Render rn(gfx);
 	rn.DrawEditor(m_editor);
+}
+
+void Game::CheckKeyboardEvents(void)
+{
+	if (wnd.kbd.KeyIsPressed(VK_UP))
+	{
+		m_editor.getPlayer().move(iVec2(0, -1));
+	}
+	if (wnd.kbd.KeyIsPressed(VK_DOWN))
+	{
+		m_editor.getPlayer().move(iVec2(0, 1));
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_LEFT))
+	{
+		m_editor.getPlayer().move(iVec2(-1, 0));
+	}
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+	{
+		m_editor.getPlayer().move(iVec2(1, 0));
+	}
+
+}
+
+void Game::CheckMouseEvents()
+{
+	iVec2 mouse_position(wnd.mouse.GetPosX(), wnd.mouse.GetPosY());
+
+	//template button clicked
+	if (m_editor.getToolbar().getCopyButton().getRect().isPointWithin(mouse_position))
+	{
+		m_editor.setMode(EDITOR_MODE_COPY_CELL);
+	};
+
+	//map clicked
+	if (m_editor.getMap().getRect().isPointWithin(mouse_position))
+	{
+		switch (m_editor.getMode())
+		{
+			case EDITOR_MODE_COPY_CELL: copyCell(mouse_position); break;
+		}
+	}
+}
+
+void Game::copyCell(iVec2 mouse_position)
+{
+	iVec2 tmp = mouse_position - m_editor.getMap().getRect().getTopLeft();
+	iVec2 cellPositon(tmp.getX() / CELL_DIM_X, tmp.getY() / CELL_DIM_Y);
+
+	if (!(cellPositon.getX() >= m_editor.getMap().getDim().getX() || cellPositon.getY() >= m_editor.getMap().getDim().getY()))
+	{
+		m_editor.getMap().getCellMatrix()[cellPositon.getX()][cellPositon.getY()].setCell(m_editor.getToolbar().getCopyCell());
+		//m_editor.getMap().getCellMatrix()[cellPositon.getX()][cellPositon.getY()].setColor(m_editor.getToolbar().getCopyCell().getColor());
+	}
+
+}
+
+void Game::CheckMouseToolBarEvents()
+{
+
+}
+
+void Game::CheckMouseMenuBarEvents()
+{
+
+}
+
+void Game::CheckMouseMapEvents()
+{
+
 }

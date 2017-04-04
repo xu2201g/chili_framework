@@ -14,3 +14,8 @@ void Cell::setColor(Color color)
 {
 	m_color = color;
 }
+
+void Cell::setCell(Cell & cell)
+{
+	m_color = cell.getColor();
+}

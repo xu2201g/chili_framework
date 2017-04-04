@@ -171,6 +171,7 @@
     <ClInclude Include="MenuBar.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="Mouse.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sound.h" />
@@ -196,6 +197,7 @@
     <ClCompile Include="MenuBar.cpp" />
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="Mouse.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="ToolBar.cpp" />

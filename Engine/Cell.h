@@ -18,6 +18,7 @@ public:
 	iVec2& getDimensions(void) { return m_dimensions; }
 
 	void setColor(Color color);
+	void setCell(Cell& cell);
 
 private:
 	

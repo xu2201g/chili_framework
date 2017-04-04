@@ -16,7 +16,13 @@ Map::Map(const std::string name, iVec2 dim, Color color)
 {
 	Init(color);
 }
-
+Map::Map(const std::string name, iVec2 dim, Color color, iRect rect) 
+	:
+	Map(name, dim)
+{
+	m_rect = rect;
+	Init(color);
+}
 void Map::Init(void)
 {
 	Init(CELL_COLOR_DEFAULT);
